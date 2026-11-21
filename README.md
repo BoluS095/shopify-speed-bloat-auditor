@@ -4,14 +4,17 @@
 
 Built by [NordForge AI Studio](https://bolus095.github.io/nordforge-studio/) (Norway).
 
-## Why We Built This
+## Real 27-Store Benchmark Findings
 
-Most merchants guess why mobile conversion drops while paying $50–$150/mo for legacy chat, upsell, and popup widgets whose script tags stay behind in `theme.liquid` even after uninstalling apps.
+We ran this exact headless Chromium audit across **27 live US, Canadian, UK, Australian, and Nordic e-commerce brands** ([inspect all 27 public teardowns](https://bolus095.github.io/nordforge-studio/#audits)):
 
-Across live headless Chromium benchmarks of real e-commerce brands ([live audit teasers](https://bolus095.github.io/nordforge-studio/#audits)):
-- **Average external `<script>` tags loaded per homepage**: `46` (with >54% loading `40+` external scripts)
-- **Average DOMContentLoaded timing**: `1,973 ms` (up to `3,801 ms` on heavily scripted stores)
-- **Structured data gap**: `27%` of scanned storefronts rendered `0` valid `application/ld+json` schemas
+- **Average external `<script>` tags loaded per homepage**: `44.7` (worst store measured: `123` external scripts)
+- **`40+` external scripts loaded**: `16 of 27` brands (`59%`)
+- **Average `DOMContentLoaded` timing**: `2,051 ms` (up to `6,068 ms` on heavy stores)
+- **Zero `application/ld+json` structured data schemas**: `9 of 27` stores (`33%`)
+- **Broken DOM images (`naturalWidth === 0`)**: `5 of 27` stores (`19%`)
+
+Many stores pay $50–$150/mo for third-party widgets whose render-blocking `<script>` tags remain in `theme.liquid` even after uninstalling the apps.
 
 ## Quick Start
 
@@ -32,7 +35,7 @@ node bin/audit.mjs https://your-store.com --json
 ## What It Measures
 
 1. **TTFB & DOMContentLoaded** via browser `PerformanceNavigationTiming`
-2. **External Scripts & Third-Party Hosts** (`script[src]` waterfall + matched app embeds like Klaviyo, Hotjar, Judge.me, Yotpo, Omnisend, Gorgias, etc.)
+2. **External Scripts & Third-Party Hosts** (`script[src]` waterfall + matched app embeds like Klaviyo, Hotjar, Judge.me, Yotpo, Omnisend, Gorgias, Attentive)
 3. **Total Measured Payload (KB)** across first load
 4. **Media & Accessibility Health** (`naturalWidth === 0` broken images + missing `alt` attributes)
 5. **Mobile Viewport Overflow (390x844)** checking `scrollWidth - innerWidth`
