@@ -158,19 +158,28 @@ async function runAudit(url) {
       return;
     }
 
-    console.log(`\n=== Shopify Speed & Bloat Audit: ${rootHost} ===`);
+    console.log(`\n=== Shopify Speed & Bloat Audit v1.1 (BFCM Readiness): ${rootHost} ===`);
     console.log(`Score: ${result.score}/100 | HTTP ${result.httpStatus} | Stack: ${result.isShopify ? "Shopify" : "Web/DTC"}`);
     console.log(`TTFB: ${result.ttfbMs}ms | DOM Load: ${result.domContentLoadedMs}ms | Payload: ${result.transferKb} KB`);
     console.log(`External Scripts: ${result.externalScripts} across ${result.thirdPartyDomains} 3rd-party hosts`);
-    console.log(`App Embeds Detected: ${result.appEmbeds.length ? result.appEmbeds.join(", ") : "None matched"}`);
+    console.log(`App Embeds Detected (${result.appEmbeds.length}): ${result.appEmbeds.length ? result.appEmbeds.join(", ") : "None matched"}`);
+    if (result.appEmbeds.length > 0) {
+      const estMonthly = result.appEmbeds.length * 29;
+      console.log(`Estimated Replaceable App Subscriptions: ~$${estMonthly}/mo ($${estMonthly * 12}/yr)`);
+    }
     console.log(`JSON-LD Schemas: ${result.jsonLdCount} | Broken Imgs: ${result.brokenImgs.length} | Missing Alt: ${result.missingAlt}`);
+    if (result.brokenImgs.length > 0) {
+      console.log(`Broken Image Samples: ${result.brokenImgs.slice(0, 3).join(", ")}`);
+    }
     console.log(`Mobile Overflow (390px): ${result.mobileOverflowPx}px`);
     if (result.findings.length) {
       console.log("\nPriority Issues Found:");
       result.findings.forEach((f, idx) => console.log(`  ${idx + 1}. ${f}`));
     }
-    console.log("\nNeed native zero-bloat Shopify Liquid replacements or a custom 40-point fix pack?");
-    console.log("-> https://bolus095.github.io/nordforge-studio/\n");
+    console.log("\nFix these leaks in 15 minutes with zero monthly app fees:");
+    console.log("  -> $9 Quick-Win Schema + Mobile CSS Patch: https://buy.stripe.com/7sYfZggMbcxL6f4gw2cs81o");
+    console.log("  -> $29 Native Shopify Liquid CRO Kit:      https://buy.stripe.com/28E4gy2Vl41ffPEdjQcs81i");
+    console.log("  -> Full Studio & Live Audits:              https://bolus095.github.io/nordforge-studio/\n");
   } finally {
     await browser.close();
   }

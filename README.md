@@ -4,7 +4,13 @@
 
 Built by [NordForge AI Studio](https://bolus095.github.io/nordforge-studio/) (Norway).
 
-## Real 27-Store Benchmark Findings
+## What's New in v1.1.0 (Black Friday 2026 Readiness Mode)
+
+- Estimates replaceable monthly & annual Shopify app subscription costs (`~$29/mo` per detected heavy widget embed)
+- Prints exact sample URLs of broken DOM images (`naturalWidth === 0`) directly in CLI output
+- Direct links to drop-in MIT Liquid fixes & instant visual teardowns
+
+## Real Live Store Benchmark Findings
 
 We ran this exact headless Chromium audit across **27 live US, Canadian, UK, Australian, and Nordic e-commerce brands** ([inspect all 27 public teardowns](https://bolus095.github.io/nordforge-studio/#audits)):
 

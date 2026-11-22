@@ -1,6 +1,6 @@
 {
   "name": "shopify-speed-bloat-auditor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Free open-source Playwright Chromium CLI to expose Shopify third-party app script bloat, broken images, 390px mobile overflow, and missing JSON-LD schemas.",
   "type": "module",
   "bin": {
