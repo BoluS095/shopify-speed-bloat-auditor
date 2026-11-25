@@ -1,3 +1,6 @@
+> **Build & Ship Faster (Save 95% vs \-\ Competitor Kits):**
+> - **ShipZero Next.js 15 + Stripe + JWT Auth + AI Failover SaaS Boilerplate ($2.99 vs $249 ShipFast):** [Instant Pro ZIP ($2.99)](https://buy.stripe.com/9B6dR81Rh2Xb0UK1B8cs81s) &bull; [Free OSS Core](https://github.com/BoluS095/shipzero-nextjs-ai-saas-boilerplate)
+> - **60 AI Operator Playbooks (Claude/Cursor XML App + Notion + PDF — $2.50 w/ BFCM50):** [Stripe ($2.50)](https://buy.stripe.com/aFacN453t7dravk4Nkcs81r?prefilled_promo_code=BFCM50) &bull; [Gumroad](https://bolus.gumroad.com/l/ai-operator-60-playbooks/BFCM50)
 # shopify-speed-bloat-auditor
 
 > Free, MIT-licensed headless Chromium CLI to expose third-party app script bloat, slow DOM loads, broken images, 390px mobile horizontal overflow, and missing JSON-LD structured data on Shopify & DTC storefronts.
